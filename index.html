@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Food Ordering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header>
+  <h1>Food Ordering Queue</h1>
+</header>
+<main>
+  <section id="order-list">
+    <h2>Orders</h2>
+    <table id="order-tbl">
+    </table>
+    <p id="total-price"></p>
+    <div class="button-container">
+      <button id="pdf-download-btn" type="button">PDF</button>
+      <button id="cancel-order-btn" type="button">Cancel</button>
+    </div>
+  </section>
+  <section id="menu">
+    <h2>Menu</h2>
+  </section>
+</main>
+<script src="./script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</body>
+</html>

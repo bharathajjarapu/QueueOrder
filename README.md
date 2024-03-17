@@ -31,8 +31,6 @@ Website Link - [Here](https://bharathajjarapu.github.io/QueueOrder)
 - HTML5
 - CSS3
 - JavaScript
-- Queue Data Structure
-- Linked List Implementation
 
 ## Getting Started
 

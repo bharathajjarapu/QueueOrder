@@ -87,10 +87,14 @@ function updateOrderList() {
       str += '<td colspan="3" style="text-align: right;"><strong>Total Price:</strong></td>';
       str += '<td>₹' + totalPrice + '</td>';
       str += '</tr>';
+      
+      document.getElementById('pdf-download-btn').disabled = false;
     } else {
       str += '<tr>';
-      str += '<td style="text-align: center" colspan="4">Your order list is empty</td>';
+      str += '<td style="text-align: center" colspan="4">Your order list is empty please select atleast one item </td>';
       str += '</tr>';
+      
+      document.getElementById('pdf-download-btn').disabled = true;
     }
     order_tbl.innerHTML = str;
   }  
@@ -133,16 +137,18 @@ function initApp() {
 }
 
 function generatePDF() {
-  const content = document.getElementById('order-tbl');
-  const options = {
-    margin: 10,
-    filename: 'food_orders.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-  };
+  if (!order_queue.isEmpty()) {
+    const content = document.getElementById('order-tbl');
+    const options = {
+      margin: 10,
+      filename: 'food_orders.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    };
 
- html2pdf().from(content).set(options).save();
+    html2pdf().from(content).set(options).save();
+  }
 }
 
 function cancelOrder() {
@@ -156,5 +162,3 @@ document.getElementById('pdf-download-btn').addEventListener('click', generatePD
 document.getElementById('cancel-order-btn').addEventListener('click', cancelOrder);
 
 initApp();
-
-// The End
